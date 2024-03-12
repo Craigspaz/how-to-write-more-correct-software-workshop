@@ -54,12 +54,10 @@ You should see:
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-include "../../../dafny-helpers/include.dfy"
+module AwsKmsArnParsing {
 
-module {:options "-functionSyntax:4"} AwsKmsArnParsing {
-
-  import opened Wrappers
-  import opened Util
+  import opened Std.Wrappers
+  import opened Std.Collections.Seq
 
 }
 
@@ -1055,8 +1053,10 @@ Here are some bonus questions if you are hungry for more:
    the inverse of `ParseAwsKmsArn`.
    You will find one possible solution [here](../exercises/complete/src/SoundnessVsCompletness.dfy).
 
-1. `Split` and `Join` are relatively simple functions.
-    Try replacing the functions we gave you with your own. 
+1. [`Split`](https://github.com/dafny-lang/dafny/blob/master/Source/DafnyStandardLibraries/src/Std/Collections/Seq.dfy#L636) 
+    and [`Join`](https://github.com/dafny-lang/dafny/blob/master/Source/DafnyStandardLibraries/src/Std/Collections/Seq.dfy#L626) 
+    are relatively simple functions.
+    Try replacing the functions from the standard libraries with your own. 
     If you really want to flex, get it to verify *before* writing your implementation.
 
 1. You might like to investigate the source that Dafny produces.
@@ -1072,9 +1072,6 @@ Here are some bonus questions if you are hungry for more:
 
 Here are some notes on the initial content of the `AwsKmsArnParsing.dfy` file:
 
-1. `include` is how Dafny includes other files.
-The file `include.dfy` is a helper file we added for you.
-
 1. `module` is how Dafny organizes code.
 This `module` is called `AwsKmsArnParsing`.
 Everything in `{}` is the contents of the `module`.
@@ -1088,11 +1085,3 @@ and brings it into scope.
 in the imported module and puts them in the current namespace.
 This is where we will get symbols that don't exist in this file,
 for example `Split` and `Join`.
-
-1. `{:options "-functionSyntax:4"}`
-allows us to use the simplest syntax for function declarations,
-which will be the default in Dafny 4 once it is released.
-You can safely ignore this,
-but if you are *really* interested:
-see [Controlling language features
-](https://dafny.org/dafny/DafnyRef/DafnyRef#sec-controlling-language) for more details.

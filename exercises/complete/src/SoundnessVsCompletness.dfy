@@ -3,9 +3,9 @@
 
 include "./AwsKmsArnParsing.dfy"
 
-module {:options "-functionSyntax:4"} SoundnessVsCompletness {
-  import opened Wrappers
-  import opened Util
+module SoundnessVsCompletness {
+  import opened Std.Wrappers
+  import opened Std.Collections.Seq
   import opened AwsKmsArnParsing
 
 
